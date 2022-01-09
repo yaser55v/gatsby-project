@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { Button, Container, Flex, Heading, NavLink } from "theme-ui"
-import netlifyIdentity from "netlify-identity-widget"
 import { Link } from "gatsby"
+import { IdentityContext } from "../../identity-context"
 
 const Home = () => {
-  const [user, setUser] = useState()
-  useEffect(() => {
-    netlifyIdentity.init({})
-    netlifyIdentity.on("login", user => {
-      netlifyIdentity.close()
-      setUser(user)
-    })
-    netlifyIdentity.on("logout", () => setUser())
-  })
+  const { user, identity: netlifyIdentity } = useContext(IdentityContext)
+
   return (
     <Container p={4} bg="muted">
       <Flex as="nav">
@@ -34,14 +27,6 @@ const Home = () => {
           sx={{ marginTop: 2 }}
           onClick={() => {
             netlifyIdentity.open()
-          }}
-        >
-          Log In
-        </Button>
-        <Button
-          sx={{ marginTop: 2 }}
-          onClick={() => {
-            console.log(netlifyIdentity.currentUser())
           }}
         >
           Log In
