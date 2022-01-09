@@ -14,9 +14,14 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@theme-ui/preset-funk": "^0.13.1",
+    "@theme-ui/preset-roboto": "^0.13.1",
     "gatsby": "^4.4.0",
+    "gatsby-plugin-theme-ui": "^0.13.1",
+    "netlify-identity-widget": "^1.9.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "theme-ui": "^0.13.1"
   },
   "devDependencies": {
     "prettier": "^2.5.1"
